@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | 2A Accessories</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 75px;
+            padding: 0 8%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: lightblue;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #e53935;
+        }
+
+
+        /* MAIN ABOUT */
+
+        .about {
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+
+        /* LEFT SIDE */
+
+        .about-text small {
+            color: lightblue;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .about-text h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin: 15px 0 20px;
+        }
+
+        .about-text h1 span {
+            color: lightblue;
+        }
+
+        .about-text p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+
+        /* BUTTON */
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 13px 28px;
+            background: lightblue;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #111;
+            transform: translateY(-3px);
+        }
+
+
+        /* RIGHT SIDE CARD */
+
+        .about-card {
+            height: 380px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #111, #2b2b2b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .about-card::before {
+            content: "";
+            width: 250px;
+            height: 250px;
+            background:lightblue;
+            border-radius: 50%;
+            position: absolute;
+            top: -90px;
+            right: -80px;
+            opacity: 0.8;
+        }
+
+        .about-card::after {
+            content: "";
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            left: -70px;
+            opacity: 0.08;
+        }
+
+        .card-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .card-content .big-logo {
+            font-size: 70px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .card-content .big-logo span {
+            color: lightblue;
+        }
+
+        .card-content h2 {
+            font-size: 25px;
+            margin-top: 5px;
+        }
+
+        .card-content p {
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+
+        /* FEATURES */
+
+        .features {
+            margin-top: 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+            margin: auto;
+            border-radius: 50%;
+            background: #fff0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: lightblue;
+            font-size: 25px;
+        }
+
+        .feature h3 {
+            margin: 15px 0 10px;
+            font-size: 19px;
+        }
+
+        .feature p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .menu {
+                gap: 13px;
+            }
+
+            .menu a {
+                font-size: 11px;
+            }
+
+            .about {
+                margin: 40px auto;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-text h1 {
+                font-size: 40px;
+            }
+
+            .about-card {
+                height: 300px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                margin-top: 40px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>2A</span> Accessories
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT</a>
+            </li>
+
+            <li>
+                <a href="contact.html">CONTACT</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about">
+
+        <div class="about-container">
+
+
+            <!-- LEFT -->
+
+            <div class="about-text">
+
+                <small>ABOUT OUR STORE</small>
+
+                <h1>
+                    We Are <span>2A Accessories</span>
+                </h1>
+
+                <p><h3>
+                    Welcome to 2A Accessories — your trusted destination
+                    for quality mobile accessories.
+                </p></h3>
+
+                <p><h3>
+                    We offer stylish, reliable and affordable accessories
+                    designed to make your everyday mobile experience
+                    better.
+                </p></h3>
+
+                <p><h3>
+                    Our goal is simple: provide great products,
+                    reasonable prices and a shopping experience
+                    you can trust.
+                </p></h3>
+
+                <a href="contact.html" class="contact-btn">
+                    Contact Us →
+                </a>
+
+            </div>
+            <style>
+                .about-text:hover{
+                    color: red;
+                }
+            </style>
+
+
+            <!-- RIGHT -->
+
+            <div class="about-card">
+
+                <div class="card-content">
+
+                    <div class="big-logo">
+                        <span>2A</span>
+                    </div>
+
+                    <h2>Accessories</h2>
+
+                    <p>
+                        Quality • Style • Trust
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FEATURES -->
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <h3>Quality Products</h3>
+
+                <p>
+                    We focus on providing reliable and
+                    quality accessories.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ★
+                </div>
+
+                <h3>Best Prices</h3>
+
+                <p>
+                    Stylish accessories at affordable
+                    and reasonable prices.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ♥
+                </div>
+
+                <h3>Customer Trust</h3>
+
+                <p>
+                    Your satisfaction and trust are
+                    our top priority.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+</html>
