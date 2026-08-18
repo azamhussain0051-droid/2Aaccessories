@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Admin - Customer Orders</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: #f5f6f8;
+            color: #111;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .admin-header h1 {
+            margin: 0;
+        }
+        .back-btn {
+            text-decoration: none;
+            background: #111;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+        }
+        .orders-container {
+            display: grid;
+            gap: 20px;
+        }
+        .order-card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.08);
+        }
+        .order-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .order-id {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .status {
+            background: #fff3cd;
+            color: #856404;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .customer-info {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-box {
+            background: #f7f7f7;
+            padding: 13px;
+            border-radius: 7px;
+        }
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .products {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .product-name {
+            font-weight: bold;
+        }
+        .product-quantity {
+            color: #777;
+        }
+        .total {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+        .order-date {
+            color: #777;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        .empty {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            color: #777;
+        }
+        .clear-btn {
+            margin-top: 25px;
+            background: #e53935;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .clear-btn:hover {
+            background: #c62828;
+        }
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .admin-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .customer-info {
+                grid-template-columns: 1fr;
+            }
+
+            .order-top {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="admin-header">
+
+        <h1>📦 Customer Orders</h1>
+
+        <a href="index.html"
+           class="back-btn">
+            ← Back to Store
+        </a>
+
+    </div>
+
+
+    <div id="orders"
+         class="orders-container">
+    </div>
+
+
+    <button
+        class="clear-btn"
+        onclick="clearOrders()">
+
+        Clear All Orders
+
+    </button>
+
+
+    <script>
+
+
+        // =========================
+        // SHOW ORDERS
+        // =========================
+
+        function showOrders() {
+
+            const orders =
+                JSON.parse(
+                    localStorage.getItem("orders")
+                ) || [];
+
+
+            const container =
+                document.getElementById("orders");
+
+
+            container.innerHTML = "";
+
+
+            if (orders.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty">
+
+                        <h2>No Orders Yet 🛒</h2>
+
+                        <p>
+                            Customer orders will
+                            appear here.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            // Latest order first
+
+            orders.reverse();
+
+
+            orders.forEach(function(order) {
+
+
+                let productsHTML = "";
+
+
+                order.products.forEach(
+                    function(product) {
+
+                        productsHTML += `
+
+                            <div class="product-row">
+
+                                <div>
+
+                                    <div class="product-name">
+
+                                        ${product.name}
+
+                                    </div>
+
+                                    <div class="product-quantity">
+
+                                        Quantity:
+                                        ${product.quantity}
+
+                                    </div>
+
+                                </div>
+
+
+                                <strong>
+
+                                    Rs.
+                                    ${(
+                                        product.price *
+                                        product.quantity
+                                    ).toLocaleString()}
+
+                                </strong>
+
+                            </div>
+
+                        `;
+
+                    }
+                );
+
+
+                container.innerHTML += `
+
+                    <div class="order-card">
+
+
+                        <div class="order-top">
+
+                            <div>
+
+                                <div class="order-id">
+
+                                    Order #${order.id}
+
+                                </div>
+
+                                <div class="order-date">
+
+                                    ${order.date}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="status">
+
+                                ${order.status}
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="customer-info">
+
+
+                            <div class="info-box">
+
+                                <strong>
+                                    👤 Customer
+                                </strong>
+
+                                ${order.customerName}
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <strong>
+                                    📱 Phone
+                                </strong>
+
+                                ${order.phone}
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <strong>
+                                    📍 Address
+                                </strong>
+
+                                ${order.address}
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="products">
+
+                            <h3>
+                                🛍️ Ordered Products
+                            </h3>
+
+                            ${productsHTML}
+
+                        </div>
+
+
+
+                        <div class="total">
+
+                            Total:
+                            Rs.
+                            ${order.total.toLocaleString()}
+
+                        </div>
+
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+
+        // =========================
+        // CLEAR ORDERS
+        // =========================
+
+        function clearOrders() {
+
+            const confirmDelete =
+                confirm(
+                    "Are you sure you want to delete all orders?"
+                );
+
+
+            if (!confirmDelete) {
+                return;
+            }
+
+
+            localStorage.removeItem("orders");
+
+
+            showOrders();
+
+        }
+
+
+
+        // =========================
+        // LOAD ORDERS
+        // =========================
+
+        showOrders();
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2A ACCESSORIES </title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="aboutsheet" href="./about.html">
+    <script src="./script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+<div class="logo">
+<span class="red">2A</span>accessories
+</div>
+
+<ul class="menu">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+</ul>
+
+<div class="nav-icons">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search product...">
+    <button onclick="searchProduct()">🔍</button>
+</div>
+</div>
+</div>
+
+    <a href="./login.html">
+        <span>♙</span> Login
+    </a>
+
+    <a href="cart.html">
+        <span>🛒</span> Cart
+    </a>
+
+</div>
+</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals Of The Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= PRODUCTS SECTION ================= -->
+
+<section class="products-section">
+
+    <!-- AIR PODS -->
+    <div class="section-heading">
+        <span>WIRELESS COLLECTION</span>
+        <h2>Air <b>Pods</b></h2>
+        <p>Experience crystal clear sound with our premium Air Pods.</p>
+    </div>
+
+    <div class="products-container">
+
+        <div class="product-card">
+            <div class="discount">20% OFF</div>
+            <img src="airpods.jpg" alt="Air Pods">
+            <div class="product-info">
+                <small>Air Pods</small>
+                <h3>AirPods Pro</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 4,999</span>
+                <del>Rs. 6,200</del>
+                <button onclick="addToCart(
+    'AirPods Pro',
+    4999,
+    'airpods.jpg'
+)">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">15% OFF</div>
+            <img src="airpods2.jpg" alt="Air Pods">
+            <div class="product-info">
+                <small>Air Pods</small>
+                <h3>AirPods Max</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 5,499</span>
+                <del>Rs. 6,500</del>
+                <button onclick="addToCart(
+    'AirPods Max',
+    5499,
+    'airpods-max.jpg'
+)">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">25% OFF</div>
+            <img src="airpods3.jpg" alt="Air Pods">
+            <div class="product-info">
+                <small>Air Pods</small>
+                <h3>AirPods 3rd Gen</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 3,999</span>
+                <del>Rs. 5,300</del>
+                <button onclick="addToCart(
+    'AirPods 3rd Gen',
+    3999,
+    'airpods-3.jpg'
+)">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">18% OFF</div>
+            <img src="airpods4.jpg" alt="Air Pods">
+            <div class="product-info">
+                <small>Air Pods</small>
+                <h3>AirPods Wireless</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 2,999</span>
+                <del>Rs. 3,650</del>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- APPLE PRODUCTS -->
+
+    <div class="section-heading apple-heading">
+        <span>APPLE COLLECTION</span>
+        <h2>Apple <b>Products</b></h2>
+        <p>Premium Apple accessories for your everyday lifestyle.</p>
+    </div>
+
+    <div class="products-container">
+
+        <div class="product-card">
+            <div class="discount">10% OFF</div>
+            <img src="iphone.jpg" alt="iPhone">
+            <div class="product-info">
+                <small>Apple</small>
+                <h3>iPhone</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 89,999</span>
+                <del>Rs. 99,999</del>
+               <button onclick="addToCart('iPhone', 89999, 'iphone.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">12% OFF</div>
+            <img src="applewatch.jpg" alt="Apple Watch">
+            <div class="product-info">
+                <small>Apple</small>
+                <h3>Apple Watch</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 18,999</span>
+                <del>Rs. 21,500</del>
+                <button onclick="addToCart('Apple Watch', 18999, 'apple-watch.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">15% OFF</div>
+            <img src="ipad.jpg" alt="iPad">
+            <div class="product-info">
+                <small>Apple</small>
+                <h3>iPad</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 74,999</span>
+                <del>Rs. 85,000</del>
+                <button onclick="addToCart('iPad', 74999, 'ipad.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">20% OFF</div>
+            <img src="macbook.jpg" alt="MacBook">
+            <div class="product-info">
+                <small>Apple</small>
+                <h3>MacBook</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 149,999</span>
+                <del>Rs. 175,000</del>
+                <button onclick="addToCart('MacBook', 149999, 'macbook.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- OTHER ACCESSORIES -->
+
+    <div class="section-heading accessories-heading">
+        <span>EVERYDAY ESSENTIALS</span>
+        <h2>Other <b>Accessories</b></h2>
+        <p>Everything you need to make your mobile experience better.</p>
+    </div>
+
+    <div class="products-container">
+
+        <div class="product-card">
+            <div class="discount">30% OFF</div>
+            <img src="charger.jpg" alt="Charger">
+            <div class="product-info">
+                <small>Accessories</small>
+                <h3>Fast Charger</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 1,499</span>
+                <del>Rs. 2,100</del>
+                <button onclick="addToCart('Fast Charger', 1499, 'charger.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">25% OFF</div>
+            <img src="cable.jpg" alt="Charging Cable">
+            <div class="product-info">
+                <small>Accessories</small>
+                <h3>Premium Cable</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 799</span>
+                <del>Rs. 1,050</del>
+                <button onclick="addToCart('Premium Cable', 799, 'cable.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">20% OFF</div>
+            <img src="powerbank.jpg" alt="Power Bank">
+            <div class="product-info">
+                <small>Accessories</small>
+                <h3>Power Bank</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 2,499</span>
+                <del>Rs. 3,100</del>
+                <button onclick="addToCart('Power Bank', 2499, 'powerbank.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="discount">15% OFF</div>
+            <img src="cover.jpg" alt="Mobile Cover">
+            <div class="product-info">
+                <small>Accessories</small>
+                <h3>Premium Mobile Cover</h3>
+                <p class="stars">★★★★★</p>
+                <span class="price">Rs. 999</span>
+                <del>Rs. 1,200</del>
+               <button onclick="addToCart('Premium Mobile Cover', 999, 'mobile-cover.jpg')">
+    Add to Cart
+</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- CART BUTTON -->
+<button class="cart-btn" onclick="openCart()">
+    🛒 Cart <span id="cart-count">0</span>
+</button>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cart-sidebar">
+
+    <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+        <p class="empty-cart">Your cart is empty 🛒</p>
+    </div>
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+            <span>Total:</span>
+            <strong>Rs. <span id="cart-total">0</span></strong>
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+<script src="script.js"></script>
+<!-- CHECKOUT POPUP -->
+
+<div class="checkout-overlay" id="checkoutOverlay">
+
+    <div class="checkout-box">
+
+        <button class="close-checkout" onclick="closeCheckout()">×</button>
+
+        <h2>Place Your Order</h2>
+
+        <form id="orderForm">
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <textarea
+                id="customerAddress"
+                placeholder="Complete Address"
+                required
+            ></textarea>
+
+            <div class="order-summary">
+
+                <h3>Order Summary</h3>
+
+                <div id="checkoutItems"></div>
+
+                <h3>
+                    Total: Rs.
+                    <span id="checkoutTotal">0</span>
+                </h3>
+
+            </div>
+
+            <button type="submit" class="place-order-btn">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
